@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title>Conversor</title>
+</head>
+<body>
+</div class="container mt-5">
+    <fieldset style="width: 90%; padding: 5% ; margin-left: auto; margin-right: auto; 
+    border: 2px solid rgb(32, 19, 19); border-radius: 5px; flex-direction: row; align-items: center; justify-content: center; ">
+    <h1>Conversor de Medidas</h1>
+    <form>
+    <input class="form-control form-control-lg" for="valor" type="number"  id="valor" placeholder="Digite o valor:">
+       <select class="form-control form-control-sm"  for=" unidade-entrada"id="unidade-entrada">
+        <option value="quilometros">Quilômetros</option>
+        <option value="metros">Metros</option>
+        <option value="milhas">Milhas</option>
+      </select>
+      <select class="form-control form-control-sm" for="unidade-convertida" id="unidade-convertida">
+        <option value="quilometros">Quilômetros</option>
+        <option value="metros">Metros</option>
+        <option value="milhas">Milhas</option>      
+    </select>
+
+    <br></br>
+    <button type="button" class="btn btn-outline-info btn-lg" style="align-items: center;"id="converter">Resultado</button>
+</form>
+<p style="color:rgb(0, 0, 0);font-size: x-large; font-style:arial;" id="resultado"></p>
+</fieldset>
+</div>
+</body>
+</html>
+<script>
+    function converterUnidades(valor, unidadeEntrada, unidadeconvertida) {
+      if (unidadeEntrada === "metros" && unidadeconvertida === "quilometros") {
+        return valor / 1000;
+      } else if (unidadeEntrada === "metros" && unidadeconvertida === "pes") {
+        return valor * 3.28084;
+      } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "metros") {
+        return valor * 1000;
+      } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "pes") {
+        return valor * 3280.84;
+      } else if (unidadeEntrada === "pes" && unidadeconvertida === "metros") {
+        return valor / 3.28084;
+      } else if (unidadeEntrada === "pes" && unidadeconvertida === "quilometros") {
+        return valor / 3280.84;
+      } else {
+        return valor;
+      }
+    }
+    const botaoConverter = document.getElementById("converter");
+    const valorInput = document.getElementById("valor");
+    const unidadeEntradaSelect = document.getElementById("unidade-entrada");
+    const unidadeconvertidaSelect = document.getElementById("unidade-convertida");
+    const resultadoP = document.getElementById("resultado");
+  
+    botaoConverter.addEventListener("click", function () {
+      const valor = parseFloat(valorInput.value);
+      const unidadeEntrada = unidadeEntradaSelect.value;
+      const unidadeconvertida = unidadeconvertidaSelect.value;
+  
+      const valorConvertido = converterUnidades(valor, unidadeEntrada, unidadeconvertida);
+  
+      resultadoP.innerHTML = `${valor} ${unidadeEntrada} é igual a ${valorConvertido} ${unidadeconvertida}`;
+    });
+  
+  </script>
