@@ -17,12 +17,12 @@
        <select class="form-control form-control-sm"  for=" unidade-entrada"id="unidade-entrada">
         <option value="quilometros">Quilômetros</option>
         <option value="metros">Metros</option>
-        <option value="milhas">Milhas</option>
+        <option value="milimetros">Milímetros</option>
       </select>
       <select class="form-control form-control-sm" for="unidade-convertida" id="unidade-convertida">
         <option value="quilometros">Quilômetros</option>
         <option value="metros">Metros</option>
-        <option value="milhas">Milhas</option>      
+        <option value="milimetros">Milímetros</option>      
     </select>
 
     <br></br>
@@ -37,16 +37,16 @@
     function converterUnidades(valor, unidadeEntrada, unidadeconvertida) {
       if (unidadeEntrada === "metros" && unidadeconvertida === "quilometros") {
         return valor / 1000;
-      } else if (unidadeEntrada === "metros" && unidadeconvertida === "pes") {
-        return valor * 3.28084;
+      } else if (unidadeEntrada === "metros" && unidadeconvertida === "milimetros") {
+        return valor * 100;
       } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "metros") {
         return valor * 1000;
-      } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "pes") {
-        return valor * 3280.84;
-      } else if (unidadeEntrada === "pes" && unidadeconvertida === "metros") {
-        return valor / 3.28084;
-      } else if (unidadeEntrada === "pes" && unidadeconvertida === "quilometros") {
-        return valor / 3280.84;
+      } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "milimetros") {
+        return valor * 1000000;
+      } else if (unidadeEntrada === "milimetros" && unidadeconvertida === "metros") {
+        return valor / 1000;
+      } else if (unidadeEntrada === "milimetros" && unidadeconvertida === "quilometros") {
+        return valor / 1000000;
       } else {
         return valor;
       }
