@@ -8,63 +8,63 @@
     <title>Conversor</title>
 </head>
 <body>
-</div class="container mt-5">
-    <fieldset style="width: 90%; padding: 5% ; margin-left: auto; margin-right: auto; 
-    border: 2px solid rgb(32, 19, 19); border-radius: 5px; flex-direction: row; align-items: center; justify-content: center; ">
-    <h1>Conversor de Medidas</h1>
-    <form>
-    <input class="form-control form-control-lg" for="valor" type="number"  id="valor" placeholder="Digite o valor:">
-       <select class="form-control form-control-sm"  for=" unidade-entrada"id="unidade-entrada">
+</div class="container mt-5" style="margin-left: auto">
+    <h1 style="text-align: center">Conversor de Medidas</h1>
+    <br>  
+    <form style="text-align: center">
+    <input class="form-control form-control-lg" style="width: 650px; font-size: 17px;" for="quantidade" type="number"  id="quantidade" placeholder="Digite o valor:">
+    <br>
+    <br>
+       <select class="form-control form-control-lg" style="width: 650px; font-size: 17px;" for=" numero-entrada" id="numero-entrada">
         <option value="quilometros">Quilômetros</option>
         <option value="metros">Metros</option>
         <option value="milimetros">Milímetros</option>
       </select>
-      <select class="form-control form-control-sm" for="unidade-convertida" id="unidade-convertida">
+      <br>
+      <select class="form-control form-control-lg" style="width: 650px; font-size: 17px;" for="numero-saida" id="numero-saida">
         <option value="quilometros">Quilômetros</option>
         <option value="metros">Metros</option>
         <option value="milimetros">Milímetros</option>      
     </select>
-
     <br></br>
-    <button type="button" class="btn btn-outline-info btn-lg" style="align-items: center;"id="converter">Resultado</button>
+    <button type="button" style="width: 650px; font-size: 17px;" class="btn btn-outline-info btn-lg" id="conversao">Resultado</button>
 </form>
-<p style="color:rgb(0, 0, 0);font-size: x-large; font-style:arial;" id="resultado"></p>
-</fieldset>
+<p style="color:rgb(0, 0, 0);font-size: x-large; font-style:arial; width: 650px;" id="resultado"></p>
 </div>
 </body>
 </html>
 <script>
-    function converterUnidades(valor, unidadeEntrada, unidadeconvertida) {
-      if (unidadeEntrada === "metros" && unidadeconvertida === "quilometros") {
-        return valor / 1000;
-      } else if (unidadeEntrada === "metros" && unidadeconvertida === "milimetros") {
-        return valor * 100;
-      } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "metros") {
-        return valor * 1000;
-      } else if (unidadeEntrada === "quilometros" && unidadeconvertida === "milimetros") {
-        return valor * 1000000;
-      } else if (unidadeEntrada === "milimetros" && unidadeconvertida === "metros") {
-        return valor / 1000;
-      } else if (unidadeEntrada === "milimetros" && unidadeconvertida === "quilometros") {
-        return valor / 1000000;
+    function converterUnidades(quantidade, numeroEntrada, numeroSaida) {
+      if (numeroEntrada === "metros" && numeroSaida === "quilometros") {
+        return quantidade / 1000;
+      } else if (numeroEntrada === "metros" && numeroSaida === "milimetros") {
+        return quantidade * 1000;
+      } else if (numeroEntrada === "quilometros" && numeroSaida === "metros") {
+        return quantidade * 1000;
+      } else if (numeroEntrada === "quilometros" && numeroSaida === "milimetros") {
+        return quantidade * 1000000;
+      } else if (numeroEntrada === "milimetros" && numeroSaida === "metros") {
+        return quantidade / 1000;
+      } else if (numeroEntrada === "milimetros" && numeroSaida === "quilometros") {
+        return quantidade / 1000000;
       } else {
-        return valor;
+        return quantidade;
       }
     }
-    const botaoConverter = document.getElementById("converter");
-    const valorInput = document.getElementById("valor");
-    const unidadeEntradaSelect = document.getElementById("unidade-entrada");
-    const unidadeconvertidaSelect = document.getElementById("unidade-convertida");
+    const botaoConversao = document.getElementById("conversao");
+    const quantidadeInput = document.getElementById("quantidade");
+    const numeroEntradaSelect = document.getElementById("numero-entrada");
+    const numeroSaidaSelect = document.getElementById("numero-saida");
     const resultadoP = document.getElementById("resultado");
   
-    botaoConverter.addEventListener("click", function () {
-      const valor = parseFloat(valorInput.value);
-      const unidadeEntrada = unidadeEntradaSelect.value;
-      const unidadeconvertida = unidadeconvertidaSelect.value;
+      botaoConversao.addEventListener("click", function () {
+      const quantidade = parseFloat(quantidadeInput.value);
+      const numeroEntrada = numeroEntradaSelect.value;
+      const numeroSaida = numeroSaidaSelect.value;
   
-      const valorConvertido = converterUnidades(valor, unidadeEntrada, unidadeconvertida);
+      const numeroConvertido = converterUnidades(quantidade, numeroEntrada, numeroSaida);
   
-      resultadoP.innerHTML = `${valor} ${unidadeEntrada} é igual a ${valorConvertido} ${unidadeconvertida}`;
+      resultadoP.innerHTML = `${quantidade} ${numeroEntrada} é equivalente a ${numeroConvertido} ${numeroSaida}`;
     });
   
   </script>
